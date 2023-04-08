@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/libs/css/style.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="/assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+   
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Seller Product Edit</title>
+</head>
+
+<body>
+    
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top ">
+                <a class="navbar-brand" href="/seller/deshboard">Style eye</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <a class="nav-link nav-icons" href="/seller/rating/view/products" ><span class="fa fa-star checked"></span></a>
+                        </li>
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">feedback</i></a>   
+                        </li>  
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='fas fa-user-alt'></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name"><%= seller.firstName+" "+seller.lastName %></h5>
+                                    <!-- <span class="status"></span><span class="ml-2">Available</span> -->
+                                </div>
+                                <a class="dropdown-item" href="/seller/account/<%= seller._id %>"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="/seller/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    
+        <br><br><br><br><br>
+
+        <style>
+            form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        h2 {
+          margin-bottom: 20px;
+        }
+        
+        label {
+          display: block;
+          margin-top: 10px;
+        }
+        
+        input[type="text"], textarea, input[type="number"], input[type="file"] {
+          width: 300px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          margin-bottom: 10px;
+          font-size: 16px;
+        }
+        
+        input[type="radio"] {
+          display: none;
+        }
+        
+        label[for^="type"] {
+          display: inline-block;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          padding: 8px 16px;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        input[type="radio"]:checked + label {
+          background-color: #007bff;
+          color: #fff;
+        }
+        
+        textarea {
+          height: 120px;
+        }
+        
+        button[type="submit"] {
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+          background-color: #0062cc;
+        }
+        </style>
+                <form action="/seller/edit/product/<%= product._id %>" method="post">
+
+                    <h2>Product Form</h2>
+                    <div style="display: flex;">
+                    <div>
+                <label for="name">Product Name:</label>
+                <input type="text" id="name" name="productName" value="<%= product.productName %>" required>
+            </div>
+              
+                
+                
+                <div>
+                <label for="name">Brand Name:</label>
+                <input type="text" id="name" name="brand" value="<%= product.brand %>" required>
+            </div>
+            </div>
+            
+            <div style="display: flex;">
+                    <div>
+                        
+                        <label for="name">Category Name:</label>
+                        <input type="text" id="name" name="category" value="<%= product.category%>" required>
+                    </div>
+                    
+                    <div>
+                        <label for="description">Product Description:</label>
+                        <textarea id="description" name="productDes"><%= product.productDes %></textarea>
+                    </div>
+                    
+                </div>     
+                    <div>
+                    
+                        <% product.variants.forEach(vara => { %>
+                         
+                            <label>
+                                Variant Description:
+                        <textarea name="vDes" required><%= vara.variantsDes %></textarea>
+                    </label>
+                </div>
+                <input type="hidden" name="varId" value="<%= vara.variantId %>">
+                <input type="hidden" name="vName" value="<%= vara.variantsName %>">
+                    <label>
+                        Variant Quantity:
+            <input type="number" name="vSku" value="<%= vara.variantsSku %>" required>   
+          </label>
+          <input type="hidden" name="vId" value="<%= vara._id %>">
+          <label >
+              Variant Price:
+              <input type="number" name="vPrice" value="<%= vara.variantsPrice %>" required>
+            </label>
+            
+          <label>
+            Variant Color:
+           
+            <input type="text" id="colors"  name="vcolor" value="<%= vara.variantscolor %>" list="color-list">
+        
+        <datalist id="color-list">
+            <option value="Black">
+                <option value="Blue">
+                    <option value="Brown">
+                        <option value="Cyan">
+                <option value="DarkBlue">
+                <option value="DarkCyan">
+                <option value="DarkGray">
+                <option value="DarkGreen">
+                <option value="DarkMagenta">
+                <option value="DarkRed">
+                <option value="Gold">
+                <option value="Gray">
+                    <option value="Green">
+                <option value="Indigo">
+                <option value="LightBlue">
+                <option value="LightGreen">
+                <option value="LightGray">
+                <option value="LightPink">
+                <option value="Lime">
+                <option value="Magenta">
+                <option value="Maroon">
+                <option value="Navy">
+                <option value="Olive">
+                <option value="Orange">
+                <option value="Pink">
+                <option value="Purple">
+                <option value="Red">
+                <option value="RoyalBlue">
+                <option value="SaddleBrown">
+                <option value="Salmon">
+                <option value="SeaGreen">
+                <option value="Sienna">
+                <option value="Silver">
+                <option value="SkyBlue">
+                <option value="SlateBlue">
+                <option value="SlateGray">
+                <option value="SteelBlue">
+                <option value="Tan">
+                <option value="Teal">
+                <option value="Tomato">
+                <option value="Turquoise">
+                <option value="Violet">
+                <option value="Wheat">
+                <option value="White">
+                <option value="Yellow">
+                <option value="YellowGreen">
+                </datalist>
+            </label>
+          
+          <label id="price-lala">
+            Variant Size:
+            <input type="text" name="vSize" value="<%= vara.variantsSize %>" required>
+           
+          </label>
+          <% }) %>
+          
+          <button type="submit">Update Product</button>
+          
+
+        </form>
+        
+              <br><br><br><br><br>
+              
+
+
+
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                             Copyright © 2018 Concept. All rights reserved. Dashboard by.
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+    <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- main js -->
+    <script src="/assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+    <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
+    <!-- chart c3 js -->
+    <script src="/assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
+</body>
+ 
+</html>

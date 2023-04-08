@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Product Add</title>
+</head>
+<style>
+    form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"], textarea, input[type="number"], input[type="file"] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label[for^="type"] {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #007bff;
+  color: #fff;
+}
+
+textarea {
+  height: 120px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0062cc;
+}
+</style>
+<body>
+    <form action="/product" method="post" enctype="multipart/form-data">
+        <h2>Product Form</h2>
+        <input id="zip" type="text"   name="seller" value="<%= seller._id %>" hidden/>
+        <input id="zip" type="text"   name="shop" value="<%= shop._id %>" hidden/>
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="productName" required>
+      
+      
+        <label for="description">Product Description:</label>
+        <textarea id="description" name="productDes"></textarea>
+
+        
+
+        <label for="name">Brand Name:</label>
+        <input type="text" id="name" name="brand" required>
+
+        <label for="name">Category Name:</label>
+        <div>
+            <input type="radio" id="type1" name="category" value="powerglasses" onchange="toggleFirstName()">
+            <label for="type1"> <img src="/img/opsion4-removebg-preview.png" alt="" srcset="" style="height: 20px;"> Power Glasses</label>
+          </div>
+          <div>
+            <input type="radio" id="type2" name="category" value="contactlens" onchange="toggleFirstName()">
+            <label for="type2"><img src="/img/opsion2-removebg-preview.png" alt="" srcset="" style="height: 20px;">Contact Lens</label>
+          </div>
+          <div>
+            <input type="radio" id="type3" name="category" value="computerglasses" onchange="toggleFirstName()">
+            <label for="type3"><img src="/img/opsion3-removebg-preview.png" alt="" srcset="" style="height: 20px;">Computer Glasses</label>
+          </div>
+          <div>
+            <input type="radio" id="type4" name="category" value="sunglasses" onchange="toggleFirstName()">
+            <label for="type4"><img src="/img/opsion1-removebg-preview.png" alt="" srcset="" style="height: 20px;">Sun Glasses</label>
+          </div>
+      
+
+        
+  <label>
+    <!-- Variant ID: -->
+    <input type="hidden" name="variants[0][variantId]" value="<%= variantid %>" required>
+  </label>
+  
+  <label>
+    <!-- Variant Name: -->
+    <input type="hidden" name="variants[0][variantsName]" value="<%= variantname %>" required>
+  </label>
+  
+  <label>
+    Variant Description:
+    <textarea name="variants[0][variantsDes]" required></textarea>
+  </label>
+  
+  <label>
+    Variant Quantity:
+    <input type="number" name="variants[0][variantsSku]" required>
+  </label>
+  
+  <label >
+    Variant Price:
+    <input type="number" name="variants[0][variantsPrice]" step="0.01" required>
+  </label>
+ 
+  <label>
+    Variant Color:
+    <!-- <select name="variants[0][variantscolor]" required>
+      <option value="Red">Red</option>
+      <option value="Blue">Blue</option>
+    </select> -->
+    <!-- <label for="colors">Choose a color:</label> -->
+    <input type="text" id="colors"  name="variants[0][variantscolor]" list="color-list">
+
+<datalist id="color-list">
+    <option value="Black">
+        <option value="Blue">
+        <option value="Brown">
+        <option value="Cyan">
+        <option value="DarkBlue">
+        <option value="DarkCyan">
+        <option value="DarkGray">
+        <option value="DarkGreen">
+        <option value="DarkMagenta">
+        <option value="DarkRed">
+        <option value="Gold">
+        <option value="Gray">
+        <option value="Green">
+        <option value="Indigo">
+        <option value="LightBlue">
+        <option value="LightGreen">
+        <option value="LightGray">
+        <option value="LightPink">
+        <option value="Lime">
+        <option value="Magenta">
+        <option value="Maroon">
+        <option value="Navy">
+        <option value="Olive">
+        <option value="Orange">
+        <option value="Pink">
+        <option value="Purple">
+        <option value="Red">
+        <option value="RoyalBlue">
+        <option value="SaddleBrown">
+        <option value="Salmon">
+        <option value="SeaGreen">
+        <option value="Sienna">
+        <option value="Silver">
+        <option value="SkyBlue">
+        <option value="SlateBlue">
+        <option value="SlateGray">
+        <option value="SteelBlue">
+        <option value="Tan">
+        <option value="Teal">
+        <option value="Tomato">
+        <option value="Turquoise">
+        <option value="Violet">
+        <option value="Wheat">
+        <option value="White">
+        <option value="Yellow">
+        <option value="YellowGreen">
+        </datalist>
+    </label>
+  
+  <label id="price-lala">
+    Variant Size:
+    <select name="variants[0][variantsSize]"  id="price-lol"  required>
+      <option value="Small">Small</option>
+      <option value="Medium">Medium</option>
+      <option value="large">Large</option>
+    </select>
+  </label>
+
+        <label for="image1">Poster Image One Upload Only:</label>
+        <input type="file" id="image1" name="productImage" accept="image/*" single required>
+      
+        <label for="image2">Product Images multiple Upload:</label>
+        <input type="file" id="image2" name="productImages" accept="image/*" multiple required>
+        <button type="submit">Submit</button>
+      </form>
+
+
+      
+      
+</body>
+<script>
+  function toggleFirstName() {
+    var radioButtons = document.getElementsByName("category");
+    var firstNameLabel = document.getElementById("price-lala");
+    var firstNameInput = document.getElementById("price-lol");
+    
+    if (radioButtons[1].checked) {
+      firstNameLabel.style.display = "none";
+      firstNameInput.style.display = "none";
+    }
+    if (radioButtons[0].checked) {
+      firstNameLabel.style.display = "inline-block";
+      firstNameInput.style.display = "inline-block";
+    }
+    if (radioButtons[2].checked) {
+      firstNameLabel.style.display = "inline-block";
+      firstNameInput.style.display = "inline-block";
+    }
+    if (radioButtons[3].checked) {
+      firstNameLabel.style.display = "inline-block";
+      firstNameInput.style.display = "inline-block";
+    }
+  }
+  </script>
+</html>

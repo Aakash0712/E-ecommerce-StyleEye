@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cart Page</title>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/smalllogo.png">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"> -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    
+
+
+
+<!--
+    
+TemplateMo 559 Zay Shop
+
+https://templatemo.com/tm-559-zay-shop
+
+-->
+<style>
+    #cart {
+  max-width: 1440px;
+  padding-top: 60px;
+  margin: auto;
+}
+.form div {
+  margin-bottom: 0.4em;
+}
+.cartItem {
+  --bs-gutter-x: 1.5rem;
+}
+.cartItemQuantity,
+.proceed {
+  background: #f4f4f4;
+}
+.items {
+  padding-right: 30px;
+}
+#btn-checkout {
+  min-width: 100%;
+}
+
+/* stasysiia.com */
+@import url("https://fonts.googleapis.com/css2?family=Exo&display=swap");
+body {
+  background-color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+  color: #111111;
+  justify-content: center;
+  align-items: center;
+}
+/* .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 100%;
+} */
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 100%;
+}
+#templatemo_main_nav .navbar-nav {
+    max-width: 566px;
+}
+a {
+  color: #0e1111;
+  text-decoration: none;
+}
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
+  color: #fff;
+  background-color: #111;
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem rgb(49 132 253 / 50%);
+}
+button:hover,
+.btn:hover {
+  box-shadow: 5px 5px 7px #c8c8c8, -5px -5px 7px white;
+}
+button:active {
+  box-shadow: 2px 2px 2px #c8c8c8, -2px -2px 2px white;
+}
+
+/*PREVENT BROWSER SELECTION*/
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+/*main*/
+main:before {
+  content: "";
+  display: block;
+  height: 88px;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 600;
+  letter-spacing: 0.15rem;
+  text-align: center;
+  margin: 30px 6px;
+}
+h2 {
+  color: rgb(37, 44, 54);
+  font-weight: 700;
+  font-size: 2.5em;
+}
+h3 {
+  border-bottom: solid 2px #000;
+}
+h5 {
+  padding: 0;
+  font-weight: bold;
+  color: #92afcc;
+}
+p {
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  margin: 0.6em 0;
+}
+h1,
+h2,
+h4 {
+  text-align: center;
+  padding-top: 16px;
+}
+/* yukito bloody */
+.back {
+  position: relative;
+  top: -30px;
+  font-size: 16px;
+  margin: 10px 10px 3px 15px;
+}
+.inline {
+  display: inline-block;
+}
+
+.shopnow,
+.contact {
+  background-color: #000;
+  padding: 10px 20px;
+  font-size: 30px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.shopnow:hover {
+  text-decoration: none;
+  color: white;
+  background-color: lightgreen;
+}
+/* for button animation*/
+.shopnow span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: all 0.5s;
+}
+.shopnow span:after {
+  content: url("https://badux.co/smc/codepen/caticon.png");
+  position: absolute;
+  font-size: 30px;
+  opacity: 0;
+  top: 2px;
+  right: -6px;
+  transition: all 0.5s;
+}
+.shopnow:hover span {
+  padding-right: 25px;
+}
+.shopnow:hover span:after {
+  opacity: 1;
+  top: 2px;
+  right: -6px;
+}
+.ma {
+  margin: auto;
+}
+.price {
+  color: slategrey;
+  font-size: 2em;
+}
+#mycart {
+  min-width: 90px;
+}
+#cartItems {
+  font-size: 17px;
+}
+#product .container .row .pr4 {
+  padding-right: 15px;
+}
+#product .container .row .pl4 {
+  padding-left: 15px;
+}
+
+ 
+</style>
+</head>
+
+<body>
+  
+  <%- include('./header') %>
+
+    <!-- Close Header -->
+<% if (pdelete == "yes") { %>
+  <style>
+
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg {
+  position: absolute;
+  margin: 10px 0;
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+}
+/* .info-msg {
+  color: #059;
+  background-color: #BEF;
+} */
+.success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
+/* .warning-msg {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+.error-msg {
+  color: #D8000C;
+  background-color: #FFBABA;
+} */
+
+
+  </style>
+  <div class="success-msg" id="mesage">
+    <i class="fa fa-check"></i>
+   Product Deleted Successfully........
+  </div>
+  <script>
+    setTimeout(()=>{
+      document.getElementById('mesage').style.display = 'none';
+    },2000)
+  </script>
+<% } %>
+    <!-- Modal -->
+   
+    <!-- <h1>Shopping Cart</h1> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <main id="cart" style="max-width:960px">
+      <!-- <div class="back"><a href="#">&#11178; Go Back</a></div>   -->
+      <h1>Your Cart</h1>
+      <div class="container-fluid">
+        <div class="row align-items-start">
+          <div class="col-12 col-sm-8 items">
+            <!--1--><% cart.forEach(pro => { %>
+             
+              <div class="cartItem row align-items-start">
+                <div class="col-3 mb-2">
+                <img class="w-100" src="/uplode/<%= pro.image %>" alt="art image">
+              </div>
+              <div class="col-5 mb-2">
+                <h6 class=""><%= pro.productTitle %></h6>
+                <p class="pl-1 mb-0"><%= pro.productPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace('.00', '') %> x <%= pro.productQuanity %></p>
+                <p class="pl-1 mb-0"><%= pro.productSize %> / <%= pro.productColor %></p>
+              </div>
+              <div class="col-2">
+                <p class="cartItemQuantity p-1 text-center"><%= pro.productQuanity %></p>
+              </div>
+              <div class="col-2"><% num = pro.productPrice*pro.productQuanity %>
+                <p id="cartItem1Price"><%=  num.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace('.00', '') %></p>
+            
+              </div>
+              <div class="col-2">
+                <p id="cartItem1Price"><a href="/cart/product/delete/<%= pro._id %>"><i class="fa fa-trash"></i></a></p>
+            
+              </div>
+            </div>
+            <hr>
+            <% }) %>
+            <!--2-->
+            
+            
+              
+             
+            </div>
+          <div class="col-12 col-sm-4 p-3 proceed form">
+            <div class="row m-0">
+              <div class="col-sm-8 p-0">
+                <h6>Price Total</h6>
+              </div>
+              <div class="col-sm-4 p-0"><% var sum = cart.reduce((acc, curr) => acc + curr.productPrice, 0); %>
+                <p id="subtotal"><%= sum.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace('.00', '') %></p>
+              </div>
+            </div>
+            <div class="row m-0">
+              <div class="col-sm-8 p-0 ">
+                <h6>Quanity</h6>
+              </div><% var toq = cart.reduce((acc, curr) => acc + curr.productQuanity, 0); %>
+              <div class="col-sm-4 p-0">
+                <p id="tax"><%= toq %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row mx-0 mb-2">
+              <div class="col-sm-8 p-0 d-inline">
+                <h5>Total</h5><% var total = cart.reduce((acc, curr) => acc + (curr.productQuanity * curr.productPrice), 0); %>
+              </div>
+              <div class="col-sm-4 p-0">
+                <p id="total"><%= total.toLocaleString('en-US', { style: 'currency', currency: 'inr' }) %></p>
+              </div>
+              
+            </div>
+            <% address.forEach(add => { %>
+             
+              <input type="radio"  name="address" checked required><br><%= add.address %> / <%= add.city %> /<%= add.state %><br><%= add.zip %></input><br><br>
+              
+            <% }) %>
+              <% if (machdata == false) { %>
+               
+                <a id="btn-checkout" class="shopnow"  href="/user/address"><span>Add New Address</span></a><br><br>
+              <% } %>
+            <!-- <input type="radio" name="address" ><span>Checkout</span></input> -->
+            <form action="/user/payment" method="POST">
+              <input type="hidden" name="email" value="<%= user.email %> ">
+                <input type="hidden" name="total" value="<%= total %>">
+                <input type="hidden" name="name" value="<%= user.firstName %> / <%= user.lastName %> ">
+                 
+                  <% for(let i = 0; i < cart.length; i++) { %>
+                    <input type="hidden" name="cartProductIds[<%= i %>]" value="<%= cart[i]._id %>">
+                    <input type="hidden" name="Productid[<%= i %>]" value="<%= cart[i].productId %>">
+                    <input type="hidden" name="limit[<%= i %>]" value="<%= cart[i].limit %>">
+                    <input type="hidden" name="cartProductQus[<%= i %>]" value="<%= cart[i].productQuanity %>">
+                    <% } %>
+             <% if (toq == 0 || machdata == false ){ %>
+              
+             <% }else{ %>
+              <center>  <script
+                src="//checkout.stripe.com/v2/checkout.js"
+                class="stripe-button"
+                data-key="<%= key %>"
+                data-amount="<%= total*100 %>"
+                data-currency="inr"
+                data-name="<%= user.firstName %> <%= user.lastName %>"
+                data-description="Buy Glasses"
+                data-locale="auto" 
+                data-email="<%= user.email %>">
+                 </script>
+                </center>
+                <% } %>
+              </form>
+          </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+    <footer class="container">
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <!-- Close Banner -->
+
+    <!-- Start Section -->
+    
+    <!-- End Section -->
+
+    <!-- Start Brands -->
+   
+    <!--End Brands-->
+
+<%- include('./footer') %>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/templatemo.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- End Script -->
+</body>
+
+</html>

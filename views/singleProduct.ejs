@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Singal Product Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/img/smalllogo.png">
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"> -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="/css/slick.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/slick-theme.css">
+<!--
+    
+TemplateMo 559 Zay Shop
+
+https://templatemo.com/tm-559-zay-shop
+
+-->
+</head>
+
+<body>
+    <%- include('./header') %>
+<% if (cart == "done") { %>
+    <style>
+
+        .info-msg,
+        .success-msg,
+        .warning-msg,
+        .error-msg {
+          position: absolute;
+          margin: 10px 0;
+          width: 100%;
+          padding: 10px;
+          border-radius: 3px 3px 3px 3px;
+        }
+        /* .info-msg {
+          color: #059;
+          background-color: #BEF;
+        } */
+        .success-msg {
+          color: #270;
+          background-color: #DFF2BF;
+        }
+        /* .warning-msg {
+          color: #9F6000;
+          background-color: #FEEFB3;
+        }
+        .error-msg {
+          color: #D8000C;
+          background-color: #FFBABA;
+        } */
+        
+        
+          </style>
+          <div class="success-msg" id="mesage">
+            <i class="fa fa-check"></i>
+           Product Add On Cart Successfully........
+          </div>
+          <script>
+            setTimeout(()=>{
+              document.getElementById('mesage').style.display = 'none';
+            },2000)
+          </script>
+<% } %>
+
+<% if (sellermach == "true") { %>
+    <style>
+
+        .info-msg,
+        .success-msg,
+        .warning-msg,
+        .error-msg {
+          position: absolute;
+          margin: 10px 0;
+          width: 100%;
+          padding: 10px;
+          border-radius: 3px 3px 3px 3px;
+        }
+        /* .info-msg {
+          color: #059;
+          background-color: #BEF;
+        } */
+        .success-msg {
+          color: #270;
+          background-color: #DFF2BF;
+        }
+        .warning-msg {
+            color: #9F6000;
+            background-color: #FEEFB3;
+        }
+        
+        .error-msg {
+          color: #D8000C;
+          background-color: #FFBABA;
+        } 
+        
+        
+          </style>
+          <div class="error-msg" id="mesage">
+            <i class="fa fa-thumbs-down"></i>
+           Customer Only Buy Product........
+          </div>
+          <script>
+            setTimeout(()=>{
+              document.getElementById('mesage').style.display = 'none';
+            },2000)
+          </script>
+<% } %>
+
+<% if (limit == "true") { %>
+    <style>
+
+        .info-msg,
+        .success-msg,
+        .warning-msg,
+        .error-msg {
+          position: absolute;
+          margin: 10px 0;
+          width: 100%;
+          padding: 10px;
+          border-radius: 3px 3px 3px 3px;
+        }
+        /* .info-msg {
+          color: #059;
+          background-color: #BEF;
+        } */
+        .success-msg {
+          color: #270;
+          background-color: #DFF2BF;
+        }
+        .warning-msg {
+            color: #9F6000;
+            background-color: #FEEFB3;
+        }
+        /*
+        .error-msg {
+          color: #D8000C;
+          background-color: #FFBABA;
+        } */
+        
+        
+          </style>
+          <div class="warning-msg" id="mesage">
+            <i class="fa fa-thumbs-down"></i>
+            Product Quantity Not Avaliable........
+          </div>
+          <script>
+            setTimeout(()=>{
+              document.getElementById('mesage').style.display = 'none';
+            },2000)
+          </script>
+<% } %>
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Open Content -->
+    <section class="bg-light">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3">
+                        <img class="card-img img-fluid" src="/uplode/<%= product.productImage %>" alt="Card image cap" id="product-detail">
+                    </div>
+                    <div class="row">
+                        <!--Start Controls-->
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                                <i class="text-dark fas fa-chevron-left"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </div>
+                        <!--End Controls-->
+                        <!--Start Carousel Wrapper-->
+                        <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
+                            <!--Start Slides-->
+                            <div class="carousel-inner product-links-wap" role="listbox">
+
+                                <!--First slide-->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#"><% if ( product.productImages[0] == null) { %>
+                                             
+                                                <% }else{ %>
+                                                <img class="card-img img-fluid" src="/uplode/<%= product.productImages[0] %>" alt="Product Image 1">
+                                            <% } %>
+                                        </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#"><% if ( product.productImages[1] == null) { %>
+                                             
+                                                <% }else{ %>
+                                                <img class="card-img img-fluid" src="/uplode/<%= product.productImages[1] %>" alt="Product Image 2">
+                                            <% } %>
+                                        </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#"><% if ( product.productImages[2] == null) { %>
+                                             
+                                                <% }else{ %>
+                                                <img class="card-img img-fluid" src="/uplode/<%= product.productImages[2] %>" alt="Product Image 3">
+                                            <% } %>
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.First slide-->
+                                <% if ( product.productImages[3] == null) { %>
+                                             
+                                    <% }else{ %>
+                                <!--Second slide-->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="/uplode/<%= product.productImages[3] %>" alt="Product Image 4">
+                                        </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#"><% if ( product.productImages[4] == null) { %>
+                                             
+                                                <% }else{ %>
+                                                <img class="card-img img-fluid" src="/uplode/<%= product.productImages[4] %>" alt="Product Image 5">
+                                            <% } %>
+                                        </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#"><% if ( product.productImages[5] == null) { %>
+                                             
+                                                <% }else{ %>
+                                                <img class="card-img img-fluid" src="/uplode/<%= product.productImages[5] %>" alt="Product Image 6">
+                                            <% } %>
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.Second slide-->
+                                <% } %>
+
+                                <!--Third slide--><% if ( product.productImages[6] == null) { %>
+                                             
+                                                <% }else{ %>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid" src="/uplode/<%= product.productImages[6] %>" alt="Product Image 7">
+                                        </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#"><% if ( product.productImages[7] == null) { %>
+                                             
+                                                <% }else{ %>
+                                                <img class="card-img img-fluid" src="/uplode/<%= product.productImages[7] %>" alt="Product Image 8">
+                                            <% } %>
+                                        </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#"><% if ( product.productImages[8] == null) { %>
+                                             
+                                            <% }else{ %>
+                                             <img class="card-img img-fluid" src="/uplode/<%= product.productImages[8] %>" alt="Product Image 9">
+                                            <% } %>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                                <!--/.Third slide-->
+                            </div>
+                            <!--End Slides-->
+                        </div>
+                        <!--End Carousel Wrapper-->
+                        <!--Start Controls-->
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button" data-bs-slide="next">
+                                <i class="text-dark fas fa-chevron-right"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <!--End Controls-->
+                    </div>
+                </div>
+                <!-- col end -->
+                <div class="col-lg-7 mt-5">
+                    <% product.variants.forEach(vara => { %>
+                     
+                        <div class="card">
+                            <div class="card-body">
+                            <h1 class="h2"><%= product.productName %></h1>
+                            <p class="h3 py-2"><b>Price</b>: <%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></p>
+                            <p class="py-2">
+                                
+                                <span class="list-inline-item text-dark"> <a href="/product/rating/<%= product._id %>"><b>Rating</b> </a>  | <a href="/user/rating/product/<%= product._id %>"><b> Comments</b></a></span>
+                            </p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <h6>Brand:</h6>
+                                </li>
+                                <li class="list-inline-item">
+                                    <p class="text-muted"><strong><%= product.brand %></strong></p>
+                                </li>
+                            </ul>
+
+                            <h6>Description:</h6>
+                            <p><%= product.productDes %></p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <h6>Avaliable Color :</h6>
+                                </li>
+                                <li class="list-inline-item">
+                                    <p class="text-muted"><strong><%= vara.variantscolor %></strong></p>
+                                </li>
+                            </ul>
+                            
+                            <h6>Specification:</h6>
+                            <ul class="list-unstyled pb-3">
+                                <%= vara.variantsDes %>
+                            </ul>
+                            <form action="/user/product/select" method="post">
+                                <input type="hidden" name="productTitle" value="<%= product.productName %>">
+                                <input type="hidden" name="productId" value="<%= product._id %>">
+                                <input type="hidden" name="userId" value="<%= user %>">
+                                <input type="hidden" name="sellerId" value="<%= seller._id %>">
+                                <input type="hidden" name="category" value="<%= product.category %>">
+                                <input type="hidden" name="productColor" value="<%= vara.variantscolor %>">
+                                <input type="hidden" name="productPrice" value="<%= vara.variantsPrice %>">
+                                <input type="hidden" name="image" value="<%= product.productImage %>">
+                                <input type="hidden" name="limit" value="<%= vara.variantsSku %>">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <ul class="list-inline pb-3"><% if ( product.category == "contactlens") { %>
+                                             
+                                            <% }else{ %>
+                                            <li class="list-inline-item"> <b>Size</b>:
+                                                <input type="hidden" name="productSize" id="product-size" value="<%= vara.variantsSize %>">
+                                            </li>
+                                            <% let capitalizedFirstName = vara.variantsSize.charAt(0).toUpperCase() + vara.variantsSize.slice(1) %>
+                                            <li class="list-inline-item"><span class="btn btn-success btn-size"><%= capitalizedFirstName %></span></li>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                    <div class="col-auto">
+                                        <ul class="list-inline pb-3">
+                                            <li class="list-inline-item text-right">
+                                                <b>Avaliable Quantity</b> is <%= vara.variantsSku %>
+                                                <input type="hidden" name="productQuanity" id="product-quanity"  maxLength="<%= vara.variantsSku %>" value="1">
+                                            </li>
+                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
+                                            <li class="list-inline-item" ><span class="badge bg-secondary" id="var-value">1</span></li>
+                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row pb-3">
+                                    <div class="col d-grid">
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button>
+                                    </div>
+                                    <div class="col d-grid">
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                    </div>
+                                </div>
+                            </form>  
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Close Content -->
+
+    <!-- Start Article -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-left p-2 pb-3">
+                <h4>Related Products</h4>
+            </div>
+
+            <!--Start Carousel Wrapper-->
+            <div id="carousel-related-product">
+                <% releted.forEach(pro => { %>
+                 <% if (datadata == pro.productName) { %>
+                  
+                 <% }else{ %>
+                    <div class="p-2 pb-3">
+                        <div class="product-wap card rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="/uplode/<%= pro.productImage %>">
+                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li> <% let liked = false %>
+                                        <% like.forEach(li => { %>
+                                            <% if (li.productId.toString() === pro._id.toString()) { %>
+                                                <% liked = true %>
+                                                <a class="btn btn-success text-white" href="/user/product/dislike/<%= li._id %>">
+            <i class="fa fa-heart" style="color: red;"></i>
+        </a>
+        <% } else { %>
+            <!-- <i class="fa fa-heart"></i> -->
+        <% } %>
+    <% }) %>
+    <% if (!liked) { %>
+        <a class="btn btn-success text-white" href="/user/product/like/<%= pro.id %>">
+            <i class="fa fa-heart"></i>
+        </a>
+        <% } %></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="/single/product/<%= pro._id %>"><i class="far fa-eye"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="/single/product/<%= pro._id %>" class="h3 text-decoration-none"><%= pro.productName %></a>
+                            <% pro.variants.forEach(vara => { %>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li  style="margin-left: 30%;"> <b>Size</b>: <%= vara.variantsSize.toUpperCase() %></li>
+                                    
+                                </ul>
+                                <p class="text-center mb-0"><%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></p>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% }) %>
+                
+            </div>
+            
+
+        </div>
+    </section>
+    <!-- End Article -->
+
+
+    <!-- Start Footer -->
+    <%- include('./footer') %>
+    <!-- End Footer -->
+    </div>
+    <!-- Start Script -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/templatemo.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- End Script -->
+
+    <!-- Start Slider Script -->
+    <script src="/js/slick.min.js"></script>
+    <script>
+        $('#carousel-related-product').slick({
+            infinite: true,
+            arrows: false,
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            dots: true,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 3
+                    }
+                }
+            ]
+        });
+    </script>
+    <!-- End Slider Script -->
+
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'><link rel="stylesheet" href="/css/userStyle.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="/css/loder.css">
+    <script>
+      window.onload = () => {
+        fetch('/login')
+          .then((response) => {
+            document.querySelector('.loader').style.display = 'none';
+            document.querySelector('.loading').style.display = 'block';
+          });
+      };
+    </script>
+</head>
+<body>
+  
+  <div id="loader-container"  class="loader">
+    <p id="loadingText">Loading</p>
+  </div>
+<!-- <div class="loader"></div> -->
+<div id="loading" class="loading" style="display:none;">
+
+  <% if (pass == "err") { %>
+    <style>
+      .info-msg,
+      .success-msg,
+      .warning-msg,
+      .error-msg {
+        position:absolute;
+      
+        margin-top: -59%;
+        width: 100%;
+        padding: 10px;
+        border-radius: 3px 3px 3px 3px;
+      }
+      /* .info-msg {
+        color: #059;
+        background-color: #BEF;
+      } */
+      .success-msg {
+        color: #270;
+        background-color: #DFF2BF;
+      }
+      .warning-msg {
+        color: #9F6000;
+        background-color: #FEEFB3;
+      }
+      .error-msg {
+        color: #D8000C;
+        background-color: #FFBABA;
+      }
+      
+      
+        </style>
+        <div class="warning-msg" id="mesage">
+          <i class='fas fa-exclamation'></i>
+         Password Invalid........
+        </div>
+        <script>
+          setTimeout(()=>{
+            document.getElementById('mesage').style.display = 'none';
+          },2000)
+        </script>
+  <% } %>
+  <% if (email == "err") { %>
+    <style>
+      .info-msg,
+      .success-msg,
+      .warning-msg,
+      .error-msg {
+        position: absolute;
+        margin-top: -59%;
+        width: 100%;
+        padding: 10px;
+        border-radius: 3px 3px 3px 3px;
+      }
+      /* .info-msg {
+        color: #059;
+        background-color: #BEF;
+      } */
+      .success-msg {
+        color: #270;
+        background-color: #DFF2BF;
+      }
+      .warning-msg {
+        color: #9F6000;
+        background-color: #FEEFB3;
+      }
+      .error-msg {
+        color: #D8000C;
+        background-color: #FFBABA;
+      }
+      
+      
+        </style>
+        <div class="error-msg" id="mesage">
+          <i class="fas fa-exclamation-triangle"></i>
+         Invalid Email Please Register First........
+        </div>
+        <script>
+          setTimeout(()=>{
+            document.getElementById('mesage').style.display = 'none';
+          },4000)
+        </script>
+  <% } %>
+<!-- partial:index.partial.html -->
+<p class="tip">USER LOGIN/REGISTRATION</p>
+
+<div class="cont">
+  <div class="form sign-in">
+    <h2>Welcome back,</h2>
+    <form action="/user/login" method="post">
+    <label>
+      <!-- <span>Email</span> -->
+      <input type="email" name="email" placeholder="Enter Email"  required/>
+    </label>
+    <br><br>
+    <label>
+      <!-- <span>Password</span> -->
+      <input type="password" name="password" placeholder="Enter Password" required/>
+    </label>
+    <br><br>
+    <p class="forgot-pass"> <a href="/user/forgot/password" style="color: rgb(37, 69, 43); text-decoration: none;"> Forgot password?</a></p>
+    <button type="submit" class="submit">Login</button>
+  </form>
+    <!-- <button type="button" class="fb-btn">Connect with <span>facebook</span></button> -->
+  </div>
+  <div class="sub-cont">
+    <div class="img">
+      <div class="img__text m--up">
+        <h2>New user here?</h2>
+        <p>The process of buying eyeglasses often involves a new registration with the retailer or website where you will be purchasing the glasses. When registering for a new account, you may be asked to provide personal information such as your name, email address, and date of birth. You may also need to provide your prescription information to ensure that you get the correct lenses for your vision needs.</p>
+      </div>
+      <div class="img__text m--in">
+        <h2>already has an account?</h2>
+        <p>logging in to an existing account can make the eyeglass-buying process more streamlined and convenient, but it's important to carefully consider your options and ensure that you're purchasing from a reputable retailer. With the right glasses, you can improve your vision and enjoy comfortable, stylish eyewear.</p>
+      </div>
+      <br>
+      <div class="img__btn">
+        <span class="m--up">Register</span>
+        <span class="m--in">Login</span>
+      </div>
+    </div>
+    <div class="form sign-up">
+      <h2>Time Look Different,</h2>
+      <form action="/user/register" method="post">
+      <label>
+        <!-- <span>Name</span> -->
+        
+        <input type="text" name="firstName" placeholder="First Name" required minlength="3" pattern="[a-zA-Z]*"/>
+      </label>
+      <label>
+        <!-- <span>Name</span> -->
+        <input type="text" name="lastName" placeholder="Last Name" required minlength="3" pattern="[a-zA-Z]*"/>
+      </label>
+      <label>
+        <!-- <span>Email</span> -->
+        <input type="email" name="email" placeholder="Enter Email" required/>
+      </label>
+      <label>
+        <!-- <span>Name</span> -->
+        <input type="number" name="mobile" placeholder="Enter Mobile Number" required minlength="10" maxlength="10"/>
+      </label>
+      <label>
+        <!-- <span>Name</span> -->
+        <input type="password" name="userpassword" placeholder="Create password" required minlength="8"/>
+      </label>
+      <label>
+        <!-- <span>Password</span> -->
+        <input type="password" name="machPassword" placeholder="Re-enter Password" required minlength="8" />
+      </label>
+      <button type="submit" class="submit">Registration</button>
+    </form>
+      <!-- <button type="button" class="fb-btn">Join with <span>facebook</span></button> -->
+    </div>
+  </div>
+</div>
+
+
+<!-- partial -->
+<script src="/reload/reload.js"></script>
+  <script  src="/js/userScript.js"></script>
+
+  <h1>Partner With StyleEye</h1>
+
+  <main>  
+    <nav style="--count: 4;">
+      <ul>
+        <li style="--index: 1;">
+          <a href="#" target="_blank" rel="noreferrer noopener">
+            <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+  </svg>
+  Seller</span>
+          </a>
+        </li>
+        
+        <li style="--index: 3;">
+          <a href="https://front-end.social/jhey" target="_blank" rel="noreferrer noopener">
+            <span>
+              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Regist</title></svg>
+             <a href="/seller/login"> Login</a>
+            </span>
+          </a>
+        </li>
+        <li style="--index: 4;">
+          <a href="https://codepen.io/jh3y" target="_blank" rel="noreferrer noopener">
+            <span>
+                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>CodePen</title></svg>
+             <a href="/seller/registration"> Registration</a>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <br><br><br>
+    </nav>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Oder Tracking Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/smalllogo.png">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"> -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+<style>
+
+body {
+    letter-spacing: 0.8px;
+    background: linear-gradient(0deg , #fff , 50% , #74a0ff);
+    background-repeat: no-repeat;    
+}
+
+.container-fluid {
+    margin-top: 80px !important;
+    margin-bottom: 80px !important;
+}
+
+p {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none !important;
+    color: white ;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.small{
+    font-size: 12px !important;
+    letter-spacing: 0.5px !important;
+}
+
+.Today{
+    color: rgb(83, 83, 83);
+}
+
+.btn-outline-primary{
+    background-color: #fff !important;
+    color:#4bb8a9 !important;
+    border:1.3px solid #4bb8a9;
+    font-size: 12px;
+    border-radius: 0.4em !important;
+}
+
+.btn-outline-primary:hover{
+    background-color:#4bb8a9  !important;
+    color:#fff !important;
+    border:1.3px solid #4bb8a9;
+}
+
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #42A5F5 !important;
+}
+ 
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: #455A64;
+    padding-left: 0px;
+    margin-top: 30px
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+    color: #455A64 !important;
+    
+}
+
+#progressbar #step1:before {
+    content: "1";
+    color: #fff;
+    width: 29px;
+    margin-left: 15px !important;
+    padding-left: 11px !important;
+}
+
+
+#progressbar #step2:before {
+    content: "2";
+    color: #fff;
+    width: 29px;
+
+}
+
+#progressbar #step3:before {
+    content: "3";
+    color: #fff;
+    width: 29px;
+    margin-right: 15px !important;
+    padding-right: 11px !important;
+}
+
+#progressbar li:before {
+    line-height: 29px;
+    display: block;
+    font-size: 12px;
+    background: #455A64 ;
+    border-radius: 50%;
+    margin: auto;
+}
+
+ #progressbar li:after {
+    content: '';
+    width: 121%;
+    height: 2px;
+    background: #455A64;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 15px;
+    z-index: -1;
+} 
+
+#progressbar li:nth-child(2):after {
+    left: 50%;
+}
+
+#progressbar li:nth-child(1):after {
+    left: 25%;
+    width: 121%;
+}
+#progressbar li:nth-child(3):after {
+    left: 25% !important;
+    width: 50% !important;
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #4bb8a9; 
+}
+
+.card {
+    background-color: #fff ;
+    box-shadow: 2px 4px 15px 0px rgb(0, 108, 170);
+    z-index: 0;
+}
+
+small{
+    font-size: 12px !important;
+}
+
+.a {
+    justify-content: space-between !important;
+}
+
+.border-line {
+    border-right: 1px solid rgb(226, 206, 226)
+}
+
+.card-footer img{
+    opacity: 0.3;
+}
+
+.card-footer h5{
+    font-size: 1.1em;
+    color: #8C9EFF;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+    <%- include('./header') %>
+    <!-- Close Header -->
+    <br>
+<center><a href="/cancel/orders"><h5 style="border:2px solid #69bb7e;background-color: #69bb7e;color: #f1f1f1;width: 313px;border-radius: 40px;  ">Click to View All Cancel Products</h5></a></center>
+    <!-- Modal -->
+    <% product.forEach(pro => { %>
+    <div class="container-fluid my-5 d-sm-flex justify-content-center">
+         
+            <div class="card px-2">
+                <div class="card-header bg-white">
+                    <div class="row justify-content-between">
+                <div class="col">
+                    <p class="text-muted"> Order ID  <span class="font-weight-bold text-dark"><%= pro._id %></span></p> 
+                    <p class="text-muted"> Place On <span class="font-weight-bold text-dark"><%= pro.oderDate %></span> </p></div>
+                    <div class="flex-col my-auto">
+                        <h6 class="ml-auto mr-3">
+                            <a href="/user/oder/track/one/<%= pro._id %>">View Details</a>
+                        </h6>
+                    </div>
+              </div>
+            </div>
+            <div class="card-body">
+                <div class="media flex-column flex-sm-row">
+                    <div class="media-body ">
+                        <h5 class="bold"><%= pro.productTitle %></h5>
+                        <p class="text-muted"> Qt: <%= pro.productQuanity %></p>
+                        <h4 class="mt-3 mb-4 bold"> <span class="mt-5">&#x20B9;</span> <%= pro.productPrice %> <span class="small text-muted"><i class='fab fa-cc-visa' style='font-size:24px'></i>(4242 4242 4242 4242)  </span></h4>
+                        <p class="text-muted">Maximum Delivery Day: <span class="Today">5 Day ago</span></p>
+                        <p type="button" class="btn  btn-outline-primary d-flex"> Sector 23, Gandhinagar</p>    
+                    </div><img class="align-self-center img-fluid" src="/uplode/<%= pro.image %>" width="180 " height="180">
+                </div>
+            </div>
+            <div class="row px-3">
+                <div class="col">
+                    <!-- <ul id="progressbar" > -->
+                        <i class='far fa-handshake' style='font-size:24px'></i> <h6 class="step0 active " id="step1">Status : <%= pro.delivery %></h6>
+                    <!-- </ul> -->
+                </div>
+            </div>
+             <div class="card-footer  bg-white px-sm-3 pt-sm-4 px-0">
+                <div class="row text-center  ">
+                   <div class="col  my-auto  border-line "><a href="/user/Order/cancel/<%= pro._id %>"><h5> Cancel Product</h5></a></div>
+                    <div class="col  my-auto mx-0 px-0 "><a href="/order/bill/download/<%= pro._id %>"><h5>Bill Order</h5></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+    
+    <!-- Start Brands -->
+   
+    <!--End Brands-->
+
+<%- include('./footer') %>
+    <!-- End Footer -->
+    </div>
+    <!-- Start Script -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/templatemo.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- End Script -->
+</body>
+
+</html>

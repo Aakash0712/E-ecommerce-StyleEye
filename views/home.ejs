@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>StyleEye</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/smalllogo.png">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/loder.css">
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+
+</head>
+<body>
+    <%- include('./header') %>
+    <div class="mainlol">
+        <% if (logout == "true") { %>
+            <style>
+                .info-msg,
+                .success-msg,
+                .warning-msg,
+                .error-msg {
+                  position: relative;
+                  margin: 10px 0;
+                  width: 100%;
+                  padding: 10px;
+                  border-radius: 3px 3px 3px 3px;
+                }
+                /* .info-msg {
+                  color: #059;
+                  background-color: #BEF;
+                } */
+                .success-msg {
+                  color: #270;
+                  background-color: #DFF2BF;
+                }
+                /* .warning-msg {
+                  color: #9F6000;
+                  background-color: #FEEFB3;
+                }
+                .error-msg {
+                  color: #D8000C;
+                  background-color: #FFBABA;
+                } */
+                
+                
+                  </style>
+                  <div class="success-msg" id="mesage">
+                      <i class="fa fa-check"></i>
+                   Logout Successfully........
+                  </div>
+                  <script>
+                    setTimeout(()=>{
+                      document.getElementById('mesage').style.display = 'none';
+                    },4000)
+                  </script>
+        <% } %>
+        
+    <% if (mess == "login") { %>
+        <style>
+            .info-msg,
+            .success-msg,
+            .warning-msg,
+            .error-msg {
+              position: relative;
+              margin: 10px 0;
+              width: 100%;
+              padding: 10px;
+              border-radius: 3px 3px 3px 3px;
+            }
+            /* .info-msg {
+              color: #059;
+              background-color: #BEF;
+            } */
+            .success-msg {
+              color: #270;
+              background-color: #DFF2BF;
+            }
+            /* .warning-msg {
+              color: #9F6000;
+              background-color: #FEEFB3;
+            }
+            .error-msg {
+              color: #D8000C;
+              background-color: #FFBABA;
+            } */
+            
+            
+              </style>
+              <div class="success-msg" id="mesage">
+                  <i class="fa fa-check"></i>
+               Login Successfully........
+              </div>
+              <script>
+                setTimeout(()=>{
+                  document.getElementById('mesage').style.display = 'none';
+                },1000)
+              </script>
+    <% } %>
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Start Banner Hero -->
+    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="/img/lalala.webp" alt="" loading="lazy" style="width: 500px;">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>StyleEye</b> Sunglasses</h1>
+                                <h3 class="h2">Way Choosing Summer Sunglasses?</h3>
+                                <p>Summer sunglasses are essential to protect your eyes from harmful UV rays while adding a stylish touch to your outfit. When shopping, consider factors such as UV protection, lens color, polarization, frame style, and fashion statement. Choose a pair that fits comfortably and securely and reflects your personal style. With the right pair of sunglasses, you can enjoy the summer sun safely and in style!
+                                    
+                                </p>
+                            <a href="/sunglasses" class="button">Shop</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="/img/papapa.webp" alt="" loading="lazy">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Computer Glasses</h1>
+                                <h3 class="h2">Benefits of Using Computer Glasses.</h3>
+                                <p>
+                                    Computer glasses are designed to reduce the eye strain and fatigue that can result from extended periods of staring at a computer screen. These glasses feature lenses with special coatings and tints that block blue light and reduce glare, which are two common causes of eye strain. Computer glasses can also help improve focus and reduce headaches and neck pain that can occur from poor posture or eye strain. When shopping for computer glasses, consider factors such as lens type, frame style, and lens power. It's also a good idea to talk to your eye doctor to determine if computer glasses are right for you and to get a prescription if necessary.
+                                </p>
+                            <a href="/computerglasses" class="button">Shop</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="/img/oooo.webp" alt="" loading="lazy">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Power glasses</h1>
+                                <h3 class="h2"> Corrective Lenses for Clear Vision.</h3>
+                                <p>Power glasses are prescription eyeglasses designed to correct vision problems such as nearsightedness, farsightedness, and astigmatism. They work by bending light that enters the eye to focus the image on the retina properly. An accurate prescription from an eye doctor is essential to ensure the right lens power is used. When selecting power glasses, factors such as comfort, durability, and style should also be considered. Power glasses can significantly improve visual acuity and enhance the quality of life for people with vision problems. </p>
+                            <a href="/powerglasses" class="button">Shop</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+    <!-- End Banner Hero -->
+
+
+    <!-- Start Categories of The Month -->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1"><u class="lol">WEAR THE
+                    TREND</u></h1>
+                <p>
+                   Populer Product collection.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="/sunglasses"><img src="/img/sunglasses.jpg" loading="lazy" class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3">Sunglasses</h5>
+                <p class="text-center"><a href="/sunglasses" class="btn btn-success">Go Shop</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="/powerglasses"><img src="/img/powerglasses.jpg" loading="lazy" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Power Glasses</h2>
+                <p class="text-center"><a href="/powerglasses" class="btn btn-success">Go Shop</a></p>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="/computerglasses"><img src="/img/computerglasses.jpg" loading="lazy" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Computer Glasses</h2>
+                <p class="text-center"><a href="/computerglasses" class="btn btn-success">Go Shop</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- End Categories of The Month -->
+
+
+    <!-- Start Featured Product -->
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1"> <u class="lol"> Best PowerGlasses Product</u></h1>
+                    <p>
+                        Overall. when selecting eyeglasses. it's important to choose a product that is comfortable, durable, and provides the necessary vision correction to meet your needs. it's also recommended to get regular eye exams to ensure that your prescription is up to date and that your eyeglasses continue to provide the best possible vision correction.
+                    </p>
+                </div>
+            </div>
+            <div class="row"><% products.forEach(pro => { %>
+             
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="/single/product/<%= pro._id %>">
+                            <img src="/uplode/<%= pro.productImage %>" loading="lazy" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                   <%= pro._id %>
+                                </li><% pro.variants.forEach(vara => { %>
+                                 
+                                    <li class="text-muted text-right"><%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></li>
+                                </ul>
+                                <% }) %>
+                            <a href="/single/product/<%= pro._id %>" class="h2 text-decoration-none text-dark"><%= pro.productName %></a>
+                            <p class="card-text"><%= pro.productDes %>
+                            </p>
+                            <a href="/single/product/<%= pro._id %>" class="button">View Product</a>
+<div style="display: flex; margin-left: 100px;">     
+                   <a href="/product/rating/<%= pro._id %>">   <p class="text-muted" style="padding-right: 5px;"> Reviews </p></a> /
+                         <a href="/user/rating/product/<%= pro._id %>">   <p class="text-muted" style="padding-left: 5px;"> Comments </p></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <% }) %>
+                
+                
+            </div>
+        </div>
+    </section>
+    <!-- End Featured Product -->
+    <center><h1 class="h1"> <u class="lol">Find The Perfect Fit</u></h1></center>
+    <br><br>
+    <div class="baner-last">
+        <div class="first-row"style="width: 1000px;display: flex;height: 580px;margin-left: 170px;padding: 0px;">
+           <a href="/home?q=glasses"> <img src="/img/lastposter.webp" loading="lazy" alt="" srcset="" style="height: 100%;"></a>
+            <div class="col1"style="
+            padding-left: 10px;
+        ">
+               <a href="/computerglasses"> <img src="/img/lastposter2.webp" loading="lazy" alt="" srcset=""style="height: 50%; width:100%;" ></a>
+
+           
+                <a href="/sunglasses"><img src="/img/lastposter3.webp" loading="lazy" alt="" srcset=""style="height: 50%;width:100%;padding-top: 10px;"></a>
+
+            </div>
+        </div>
+        <div style="
+        display: flex;
+        width: 500px;
+        margin-left: 170px;
+        margin-top: 10px;
+    ">
+            <img src="/img/lastposter4.webp" alt="" srcset=""style="height: 50%; width:100%;" >
+         <a href="/computerglasses">   <img src="/img/lastposter5.webp" loading="lazy" alt="" srcset=""style="height: 500p;margin-left: 10px;width: 490px;" ></a>
+
+        </div>
+    </div>
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <!-- <div class="col-lg-6 m-auto"> -->
+                    <img src="/img/domorebemore.webp" alt="" srcset="" loading="lazy" style="width: 100%;" >
+                <!-- </div> -->
+                <br><br>
+            </div>
+            
+            <div class="row">
+                <% computerProducts.forEach(pro => { %>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="/single/product/<%= pro._id %>">
+                            <img src="/uplode/<%= pro.productImage %>" loading="lazy" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                                                      <%= pro._id %>
+
+                                </li>
+                                <% pro.variants.forEach(vara => { %>
+                                <li class="text-muted text-right"><%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></li>
+                                <% }) %></ul>
+                            <a href="/single/product/<%= pro._id %>" class="h2 text-decoration-none text-dark"><%= pro.productName %></a>
+                            <p class="card-text">
+                                <%= pro.productDes %>  </p>
+                                <a href="/single/product/<%= pro._id %>" class="button">View Product</a>
+                                <div style="display: flex; margin-left: 100px;">     
+                                                   <a href="/product/rating/<%= pro._id %>">   <p class="text-muted" style="padding-right: 5px;"> Reviews </p></a> /
+                                                         <a href="/user/rating/product/<%= pro._id %>">   <p class="text-muted" style="padding-left: 5px;"> Comments </p></a>
+                                                        </div>
+                                                     </div>
+                    </div>
+                </div>
+                <% }) %>
+                <% sunProducts.forEach(pro => { %>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="/single/product/<%= pro._id %>">
+                            <img src="/uplode/<%= pro.productImage %>" loading="lazy" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                                                      <%= pro._id %>
+
+                                </li>
+                                <% pro.variants.forEach(vara => { %>
+                                <li class="text-muted text-right"><%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></li>
+                                <% }) %></ul>
+                            <a href="/single/product/<%= pro._id %>" class="h2 text-decoration-none text-dark"><%= pro.productName %></a>
+                            <p class="card-text">
+                                <%= pro.productDes %></p>
+                                <a href="/single/product/<%= pro._id %>" class="button">View Product</a>
+                                <div style="display: flex; margin-left: 100px;">     
+                                                   <a href="/product/rating/<%= pro._id %>">   <p class="text-muted" style="padding-right: 5px;"> Reviews </p></a> /
+                                                         <a href="/user/rating/product/<%= pro._id %>">   <p class="text-muted" style="padding-left: 5px;"> Comments </p></a>
+                                                        </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                <% powerProducts.forEach(pro => { %>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="/single/product/<%= pro._id %>">
+                            <img src="/uplode/<%= pro.productImage %>" loading="lazy"   class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <%= pro._id %>
+
+                                </li>
+                                <% pro.variants.forEach(vara => { %>
+                                <li class="text-muted text-right"><%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></li>
+                <% }) %>
+                            </ul>
+                            <a href="/single/product/<%= pro._id %>" class="h2 text-decoration-none text-dark"><%= pro.productName %></a>
+                            <p class="card-text">
+                                <%= pro.productDes %> </p>
+                                <a href="/single/product/<%= pro._id %>" class="button">View Product</a>
+                                <div style="display: flex; margin-left: 100px;">     
+                                                   <a href="/product/rating/<%= pro._id %>">   <p class="text-muted" style="padding-right: 5px;"> Reviews </p></a> /
+                                                         <a href="/user/rating/product/<%= pro._id %>">   <p class="text-muted" style="padding-left: 5px;"> Comments </p></a>
+                                                        </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <!-- <div class="col-lg-6 m-auto"> -->
+                    <img src="/img/contactlenses.webp" alt="" srcset=""style="width: 100%;" >
+                <!-- </div> -->
+                <br><br>
+            </div>
+           <center> <h1 class="h1"> <u class="lol">Contact Lanses</u></h1></center>
+           <br><br>
+            <div class="row"><% contactdata.forEach(pro => { %>
+             
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="/single/product/<%= pro._id %>">
+                            <img src="/uplode/<%= pro.productImage %>" loading="lazy" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <%= pro._id %>
+
+                                </li>
+                                <% pro.variants.forEach(vara => { %>
+                                <li class="text-muted text-right"><%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></li>
+                <% }) %>
+                            </ul>
+                            <a href="/single/product/<%= pro._id %>" class="h2 text-decoration-none text-dark"><%= pro.productName %></a>
+                            <p class="card-text">
+                                <%= pro.productDes %> </p>
+                                <a href="/single/product/<%= pro._id %>" class="button">View Product</a>
+                                <div style="display: flex; margin-left: 100px;">     
+                                                   <a href="/product/rating/<%= pro._id %>">   <p class="text-muted" style="padding-right: 5px;"> Reviews </p></a> /
+                                                         <a href="/user/rating/product/<%= pro._id %>">   <p class="text-muted" style="padding-left: 5px;"> Comments </p></a>
+                                                        </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <% }) %>
+                
+                
+            </div>
+        </div>
+    </section>
+</div>
+    
+    <!-- Start Footer -->
+    <%- include('./footer') %>
+    <!-- End Footer -->
+    </div>
+</body>
+   
+
+    <!-- Start Script -->
+    <!-- <script src="/reload/reload.js"></script> -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/templatemo.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- End Script -->
+</html>

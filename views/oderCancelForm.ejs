@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact us</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    
+    <style>
+      * {
+      box-sizing: border-box;
+      }
+      html, body {
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px; 
+      color: #666;
+      }
+      input, textarea { 
+      outline: none;
+      }
+      body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: #69bb7e;
+      }
+      h1 {
+      margin-top: 0;
+      font-weight: 500;
+      }
+      form {
+      position: relative;
+      width: 80%;
+      border-radius: 30px;
+      background: #fff;
+      }
+      .form-left-decoration,
+      .form-right-decoration {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 20px;
+      background: #69bb7e;
+      }
+      .form-left-decoration {
+      bottom: 60px;
+      left: -30px;
+      }
+      .form-right-decoration {
+      top: 60px;
+      right: -30px;
+      }
+      .form-left-decoration:before,
+      .form-left-decoration:after,
+      .form-right-decoration:before,
+      .form-right-decoration:after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 30px;
+      background: #fff;
+      }
+      .form-left-decoration:before {
+      top: -20px;
+      }
+      .form-left-decoration:after {
+      top: 20px;
+      left: 10px;
+      }
+      .form-right-decoration:before {
+      top: -20px;
+      right: 0;
+      }
+      .form-right-decoration:after {
+      top: 20px;
+      right: 10px;
+      }
+      .circle {
+      position: absolute;
+      bottom: 80px;
+      left: -55px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      }
+      .form-inner {
+      padding: 40px;
+      }
+      .form-inner input,
+      .form-inner textarea {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 20px;
+      background: #d0dfe8;
+      }
+      .form-inner textarea {
+      resize: none;
+      }
+      button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 20px;
+      border: none;
+      border-bottom: 4px solid #69bb7e;
+      background: #69bb7e; 
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+      }
+      button:hover {
+      background: #4cb967;
+      } 
+      @media (min-width: 568px) {
+      form {
+      width: 60%;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <form action="/user/order/cancel/form" method="post" class="decor">
+      <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Order Cancellation</h1>
+        <input type="text" name="reason" placeholder="Reason for Order Cancel.." list="cancel_reasons" id="cancel_reason" >
+      
+
+<datalist id="cancel_reasons">
+  <!-- <option value="Product out of stock"> -->
+  <option value="Changed my mind">
+  <option value="Incorrect delivery address">
+  <option value="Delivery delay">
+  <option value="Product not as described">
+  <option value="Payment issues">
+  <option value="Technical issues">
+  <option value="Other">
+</datalist>
+
+        <input type="hidden" placeholder="Email">
+        <textarea placeholder="Feedback..." name="feedback" rows="5"></textarea>
+        <button type="submit" href="/">Submit</button>
+      </div>
+      <input type="hidden" name="userId" value="<%= oderdata.userId %>">
+      <input type="hidden" name="id" value="<%= oderdata._id %>">
+      <input type="hidden" name="productId" value="<%= oderdata.productId %>">
+      <input type="hidden" name="sellerId" value="<%= oderdata.sellerId %>">
+      <input type="hidden" name="productPrice" value="<%= oderdata.productPrice %>">
+      <input type="hidden" name="productTitle" value="<%= oderdata.productTitle %>">
+      <input type="hidden" name="productColor" value="<%= oderdata.productColor %>">
+      <input type="hidden" name="category" value="<%= oderdata.category %>">
+      <input type="hidden" name="productQuanity" value="<%= oderdata.productQuanity %>">
+      <input type="hidden" name="payment" value="<%= oderdata.payment %>">
+      <input type="hidden" name="oderDate" value="<%= oderdata.oderDate %>">
+      <input type="hidden" name="delivery" value="<%= oderdata.delivery %>">
+    </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Power Glasses</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/smalllogo.png">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+<!--
+    
+TemplateMo 559 Zay Shop
+
+https://templatemo.com/tm-559-zay-shop
+
+-->
+</head>
+
+<body>
+    
+    <!-- Start Top Nav -->
+    <!-- <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+    <!-- Close Top Nav -->
+
+
+    <!-- Header -->
+<%- include('./header') %>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Start Content -->
+    <div class="container py-5">
+        <div class="row">
+
+            <div class="col-lg-3">
+                <h1 class="h2 pb-4">Categorys</h1>
+                <ul class="list-unstyled templatemo-accordion">
+                    <li class="pb-3">
+                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none">
+                            Hight - Low : Price
+                            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul class="collapse show list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="/categorys/high/price/powerglasses">High Price</a></li>
+                            <li><a class="text-decoration-none" href="/categorys/low/price/powerglasses">Low Price</a></li>
+                        </ul>
+                    </li>
+                    <li class="pb-3">
+                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none">
+                            Price Range
+                            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul id="collapseTwo" class="collapse list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="/categorys/0/1500/powerglasses">0 to 1500</a></li>
+                            <li><a class="text-decoration-none" href="/categorys/1500/2000/powerglasses">1500 to 2000</a></li>
+                            <li><a class="text-decoration-none" href="/categorys/2000/3000/powerglasses">2000 to 3000</a></li>
+                            <li><a class="text-decoration-none" href="/categorys/3000/5000/powerglasses">3000 to 5000</a></li>
+                            <li><a class="text-decoration-none" href="/categorys/luxury/price/powerglasses">Luxury</a></li>
+                        </ul>
+                    </li>
+                    <li class="pb-3">
+                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none">
+                            Size
+                            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul id="collapseThree" class="collapse list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="/categorys/product/large/powerglasses">Large</a></li>
+                            <li><a class="text-decoration-none" href="/categorys/product/small/powerglasses">Small</a></li>
+                            <li><a class="text-decoration-none" href="/categorys/product/medium/powerglasses">Midium</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-inline shop-top-menu pb-3 pt-1">
+                            <li class="list-inline-item">
+                                <a class="h3 text-dark text-decoration-none mr-3" href="/powerglasses">All</a>
+                            </li>
+                            
+                            <li class="list-inline-item">
+                                <a class="h3 text-dark text-decoration-none" href="/categorys/low/price/powerglasses">Low Cost</a>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </div>
+                <div class="row"><% power.forEach(pro => { %>
+                 
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="/uplode/<%= pro.productImage %>">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <% let liked = false %>
+                                        <% like.forEach(li => { %>
+                                            <% if (li.productId.toString() === pro._id.toString()) { %>
+                                                <% liked = true %>
+                                                <a class="btn btn-success text-white" href="/user/product/dislike/<%= li._id %>">
+            <i class="fa fa-heart" style="color: red;"></i>
+        </a>
+        <% } else { %>
+            <!-- <i class="fa fa-heart"></i> -->
+        <% } %>
+    <% }) %>
+    <% if (!liked) { %>
+        <a class="btn btn-success text-white" href="/user/product/like/<%= pro.id %>">
+            <i class="fa fa-heart"></i>
+        </a>
+        <% } %>
+         <li><a class="btn btn-success text-white mt-2" href="/single/product/<%= pro._id %>"><i class="far fa-eye"></i></a></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="/single/product/<%= pro._id %>" class="h3 text-decoration-none"><%= pro.productName %></a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <% pro.variants.forEach(vara => { %>
+                                        <li style="margin-left: 30%;">Size : <%= vara.variantsSize %></li>
+                                    
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+
+                                </ul>
+                                <p class="text-center mb-0"><%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></p>
+                            </div><% }) %>
+                        </div>
+                    </div>
+                    <% }) %>
+                       
+                </div>
+              
+            </div>
+</div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Start Brands -->
+    
+    <!-- Start Footer -->
+    <%- include('./footer') %>
+
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/templatemo.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- End Script -->
+</body>
+
+</html>

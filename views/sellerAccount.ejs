@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/libs/css/style.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="/assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    
+    <title>Seller Account</title>
+</head>
+
+<body>
+    
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top ">
+                <a class="navbar-brand" href="/seller/deshboard">Style eye</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                      
+                        <li class="nav-item">
+                            <a class="nav-link nav-icons" href="/seller/rating/view/products" ><span class="fa fa-star checked"></span></a>
+                                
+                          
+                        </li>
+                        <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">feedback</i></a>
+                           
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='fas fa-user-alt'></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name"><%= seller.firstName+" "+seller.lastName %></h5>
+                                    <!-- <span class="status"></span><span class="ml-2">Available</span> -->
+                                </div>
+                                <a class="dropdown-item" href="/seller/account"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="/seller/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <% if (update == "self") { %>
+            <style>
+                .info-msg,
+                .success-msg,
+                .warning-msg,
+                .error-msg {
+                  position: absolute;
+                  margin: 10px 0;
+                  width: 100%;
+                  padding: 10px;
+                  border-radius: 3px 3px 3px 3px;
+                }
+                /* .info-msg {
+                  color: #059;
+                  background-color: #BEF;
+                } */
+                .success-msg {
+                  color: #270;
+                  background-color: #DFF2BF;
+                }
+                /* .warning-msg {
+                  color: #9F6000;
+                  background-color: #FEEFB3;
+                }
+                .error-msg {
+                  color: #D8000C;
+                  background-color: #FFBABA;
+                } */
+                
+                
+                  </style>
+                  <div class="success-msg" id="mesage">
+                      <i class="fa fa-check"></i>
+                   Profile Update Successfully........
+                  </div>
+                  <script>
+                    setTimeout(()=>{
+                      document.getElementById('mesage').style.display = 'none';
+                    },2000)
+                  </script>
+        <% } %>
+        <% if (update == "shop") { %>
+            <style>
+                .info-msg,
+                .success-msg,
+                .warning-msg,
+                .error-msg {
+                  position: absolute;
+                  margin: 10px 0;
+                  width: 100%;
+                  padding: 10px;
+                  border-radius: 3px 3px 3px 3px;
+                }
+                /* .info-msg {
+                  color: #059;
+                  background-color: #BEF;
+                } */
+                .success-msg {
+                  color: #270;
+                  background-color: #DFF2BF;
+                }
+                /* .warning-msg {
+                  color: #9F6000;
+                  background-color: #FEEFB3;
+                }
+                .error-msg {
+                  color: #D8000C;
+                  background-color: #FFBABA;
+                } */
+                
+                
+                  </style>
+                  <div class="success-msg" id="mesage">
+                      <i class="fa fa-check"></i>
+                      Shop Update Successfully........
+                  </div>
+                  <script>
+                    setTimeout(()=>{
+                      document.getElementById('mesage').style.display = 'none';
+                    },2000)
+                  </script>
+        <% } %>
+       
+       
+        <br><br><br>
+                <!-- ============================================================== -->
+                            <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <h5 class="card-header">Products</h5>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <!-- <th class="border-0">#</th> -->
+                                                        <th class="border-0">First Name</th>
+                                                        <th class="border-0">Last Name</th>
+                                                       
+                                                        <th class="border-0">Email</th>
+                                                        <th class="border-0">Mobile</th>
+                                                        <th class="border-0">Bank Name</th>
+                                                        <th class="border-0">Account Number</th>
+                                                        <th class="border-0">IFSC Number</th>
+                                                        <th class="border-0"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+ 
+                                                            <tr>    
+                                                  
+                                                                
+                                                                <form action="/seller/account/update" method="post">
+                                                                
+                                                                <td><input type="text" name="firstName" value="<%= seller.firstName %>" required>
+                                                                </td>
+                                                                <td><input type="text" name="lastName" value="<%= seller.lastName %>" required>
+                                                                </td>
+                                                               <input type="hidden" name="sellerid" value="<%= seller._id %>">
+                                                          
+                                                            <td><input type="email" name="email" value="<%= seller.email %>" required></td>
+                                                            <td><input type="number" name="mobile" value="<%= seller.mobile %>" required></td>
+                                                            <td><input type="text" name="bankAccount[bankName]" value="<%= seller.bankAccount.bankName %>" required></td>
+         
+                                                            <td> <input type="number" id="accountNumber" name="bankAccount[accountNumber]" value="<%= seller.bankAccount.accountNumber %>" required></td>
+          
+                                                            <td><input type="text" id="routingNumber" name="bankAccount[ifscNumber]" value="<%= seller.bankAccount.ifscNumber %>" required></td>
+                                                            <td><span class="badge-dot badge-success  mr-2"></span><button type="submit" name="update" value="seller">Update</button></td>
+                                                        </tr>
+                                                        
+                                                   
+                                                    
+                                                    
+                                                  
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <h5 class="card-header">Products</h5>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="bg-light">
+                                                    <tr class="border-0">
+                                                        <!-- <th class="border-0">#</th> -->
+                                                        <th class="border-0">Shop Name</th>
+                                                        <th class="border-0">Shop Address</th>
+                                                        <th class="border-0">Shop City</th>
+                                                        <th class="border-0">Shop State</th>
+                                                        <th class="border-0">Shop Pincode</th>
+                                                        
+                                                        <th class="border-0"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+ 
+                                                            <tr>    
+                                                  
+                                                                
+                                                                
+            
+            <td><input id="name" type="text" name="shopName" value="<%= shop.shopName %>" required/>
+                                                                </td>
+                                                               <input type="hidden" name="shopid" value="<%= shop._id %>">
+                                                            <td><input type="text" id="name" name="address[street]" value="<%= shop.address.street %>" required></td>
+                                                            <td><input type="text" id="accountNumber" name="address[city]" value="<%= shop.address.city %>" required></td>
+                                                            <td><input type="text" id="routingNumber" name="address[state]" value="<%= shop.address.state  %>" required></td>
+                                                            <td><input type="number" id="routingNumber" name="address[zip]" value="<%= shop.address.zip %>" required></td>
+                                                            <td><span class="badge-dot badge-success  mr-2"></span><button type="submit" name="update" value="shop">Update</button></td>
+                                                            <!-- <td><span class="badge-dot badge-danger  mr-2"></span> <a href="#">Delete</a></td> -->
+                                                        </tr>
+                                                    </form>
+
+                                                   
+                                                    
+                                                    
+                                                 
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+<br><br><br><br><br>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                             Copyright © 2018 Concept. All rights reserved. Dashboard by .
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+    <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- main js -->
+    <script src="/assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+    <script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
+    <!-- chart c3 js -->
+    <script src="/assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
+</body>
+ 
+</html>

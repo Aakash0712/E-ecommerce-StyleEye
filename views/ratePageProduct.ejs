@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Peoduct Rating</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/smalllogo.png">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    
+</head>
+
+<body>
+  
+    <%- include('./header') %>
+    
+
+<div style="display: flex;">
+     
+    <div class="col-md-4" >
+      <div class="card mb-4 product-wap rounded-0">
+          <div class="card rounded-0">
+              <img class="card-img rounded-0 img-fluid" src="/uplode/<%= pro.productImage %>">
+              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                  <ul class="list-unstyled">
+                      <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
+                      <li><a class="btn btn-success text-white mt-2" href="/single/product/<%= pro._id %>"><i class="far fa-eye"></i></a></li>
+                      <!-- <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li> -->
+                  </ul>
+              </div>
+          </div>
+          <div class="card-body" style="text-align: center;">
+              <a href="/single/product/<%= pro._id %>" class="h3 text-decoration-none"><%= pro.productName %></a>
+              <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                <% pro.variants.forEach(vara => { %>
+                  <li style="margin-left: 38%;">Size : <%= vara.variantsSize.toUpperCase() %>
+                  </li>
+                  
+                </ul>
+                <ul class="list-unstyled d-flex justify-content-center mb-1" >
+                  <% if (isNaN(realrate)) { %>
+                    <h4 class="bold padding-bottom-7">  No Rating </h4>
+                    
+                    <% }else{ %>
+                  <% var rating = realrate; %>
+                  <% var stars = Math.round(rating * 2) / 2; %>
+                  <% for (var i = 0; i < 5; i++) { %>
+                 <% if (stars >= i + 1) { %>
+                  <i class="text-warning fa fa-star checked fa-2x" style="color: #ede861;"></i>
+                  <% } else if (stars >= i + 0.5) { %>
+                     <i class="text-warning fa fa-star-half-full  checked" style="color: #ede861;"></i>
+                     <% } else { %>
+                      <i class="text-muted fa fa-star" style="color: #ede861;"></i>
+                      <% } %>
+                      <% } %>
+                  <% } %>
+              </ul>
+              <p class="text-center mb-0"><%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></p>
+            </div>
+          </div>
+          <% }) %>
+     
+  </div>
+    <div class="container">
+                        
+      <div class="row" style="text-align: center;">
+          <div class="col-sm-3" style="width: 100%;">
+              <div class="rating-block">
+                  <h4>Average user rating</h4>
+          <hr/>
+
+                  <% if (isNaN(realrate)) { %>
+                  <h4 class="bold padding-bottom-7">  No Rating <small>/ 5</small></h4>
+                   
+                  <% }else{ %>
+                    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                  <h2 class="bold padding-bottom-7"><%= realrate %> <small>/ 5</small></h2>
+                  <% var rating = realrate; %>
+                  <% var stars = Math.round(rating * 2) / 2; %>
+                  <% for (var i = 0; i < 5; i++) { %>
+                 <% if (stars >= i + 1) { %>
+                  <i class="fa fa-star checked" style="color: #ede861;"></i>
+                  <% } else if (stars >= i + 0.5) { %>
+                     <i class="fa fa-star-half-full  checked" style="color: #ede861;"></i>
+                    <% } else { %>
+                      <i class="text-muted fa fa-star"></i>
+                      <% } %>
+                  <% } %>
+                  <% } %>
+                  
+
+                </div>
+          </div>
+          	
+      </div>			
+      
+      <div class="row">
+       
+        <div class="col-sm-7" style="width: 100%;">
+          <hr/>
+          <% if (data == "") { %>
+           <h1> Reating Emty....</h1>
+          <% } %>
+              <div class="review-block"><% data.forEach(rate => { %>
+                  <div class="row" style="text-align: center;">
+                      <div class="col-sm-3" style="width: 100%;">
+                        
+                        <div class="review-block-name"><a ><%= rate.name %></a></div>
+                          <div class="review-block-date" ><u> Date</u> <br> <%= rate.date %></div>
+                        </div>
+                        <div class="col-sm-9" style="width: 100%;">
+                          
+                          <div class="review-block-title">Rating : <%= rate.rate %> /  <% var rating = rate.rate; %>
+                            <% var stars = Math.round(rating * 2) / 2; %>
+                            <% for (var i = 0; i < 5; i++) { %>
+                              <% if (stars >= i + 1) { %>
+                                <i class="fa fa-star checked" style="color: #ede861;"></i>
+                                <% } else if (stars >= i + 0.5) { %>
+                                  <i class="fa fa-star-half-full  checked" style="color: #ede861;"></i>
+                                  <% } else { %>
+                                    <i class="text-muted fa fa-star" style="color: #ede861;"></i>
+                                    <% } %>
+                                    <% } %></div>
+                                    <hr style="width: 40%; margin-left: 30%;">
+                            <div class="review-block-description"><u>Comment</u>   <br> <%= rate.comment %></div>
+                            <div><% if (rate.like == "like") { %>
+                             
+                              <i class="fa fa-thumbs-down  " style="color: #ed6361;"></i>
+                            <% }else if(rate.like == "dislike"){ %>
+
+                              <i class="fa fa-thumbs-up  " style="color: #ed6361;"></i>
+                                  <% } %>
+                            
+                                  </div>
+                          </div>
+                        </div>
+                        <hr/>
+                        <% }) %>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div> <!-- /container -->
+              </div>
+                
+                <!-- Bootstrap core JavaScript
+                  ================================================== -->
+                  <!-- Placed at the end of the document so the pages load faster -->
+                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+
+
+
+
+    <!-- Start Footer -->
+    <%- include('./footer') %>
+    <!-- End Footer -->
+</div>
+</body>
+   
+
+    <!-- Start Script -->
+    <!-- <script src="/reload/reload.js"></script> -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/templatemo.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- End Script -->
+</html>

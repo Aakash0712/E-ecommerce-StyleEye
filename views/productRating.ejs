@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SunGlasess</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/smalllogo.png">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/templatemo.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+<!--
+    
+TemplateMo 559 Zay Shop
+
+https://templatemo.com/tm-559-zay-shop
+
+-->
+</head>
+
+<body>
+    
+    <!-- <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+    <!-- Close Top Nav -->
+
+
+    <!-- Header -->
+<%- include('./header') %>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+                    <div class="row">
+                 
+                    <div class="col-md-4" >
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="/uplode/<%= pro.productImage %>">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                        <% if (like == null) { %>
+                                            <a class="btn btn-success text-white" href="/user/product/like/<%= pro._id %>"><i class="far fa-heart"></i></a>
+                                             <% }else{ %>
+                                                <a class="btn btn-success text-white" href="/user/product/dislike/<%= like._id %>">
+                                                    <i class="fa fa-heart" style="color: red;"></i>
+                                                </a>
+                                                <% } %>
+                                            </li>
+                                        <li><a class="btn btn-success text-white mt-2" href="/single/product/<%= pro._id %>"><i class="far fa-eye"></i></a></li>
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="/single/product/<%= pro._id %>" class="h3 text-decoration-none"><%= pro.productName %></a>
+                              
+                                <% pro.variants.forEach(vara => { %>
+                                    <p class="text-center mb-0">Size : <%= vara.variantsSize %></p>
+                                
+                            
+                          
+                            <p class="text-center mb-0"><%= vara.variantsPrice.toLocaleString('en-US', { style: 'currency', currency: 'inr' }).replace(/\.00$/, ''); %></p>
+                            <br><br>
+                        </div><% }) %>
+                        </div>
+                       
+                    </div>
+                    <div style="position: absolute; left: 40%;">
+                        <form action="/user/rate/product" method="post">
+                        <input type="hidden" name="userid" value="<%= user._id %>">
+                        <input type="hidden" name="name" value="<%= user.firstName +" "+ user.lastName %>">
+                        <input type="hidden" name="date" value="<%= date %>">
+                        <input type="hidden" name="productid" value="<%= pro._id %>">
+                        <h1 style="font-size: 40px;">Type Your Comment And Rating</h1>
+                        <h4>Rate 5/5</h3>
+                        <input type="number" name="rate" minlength="0.1" maxlength="5" required><br>
+                        <h4>Comment</h3> 
+
+                        <textarea name="comment" id="" cols="30" rows="10"></textarea><br>
+                        <button style="width: 320px; background-color: lightgreen; border: 0;">Submit</button>
+                    </form>
+                    </div>
+                    
+       
+
+    <!-- Start Footer -->
+    <%- include('./footer') %>
+
+    <!-- End Footer -->
+</div>
+    <!-- Start Script -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/templatemo.js"></script>
+    <script src="/js/custom.js"></script>
+    <!-- End Script -->
+</body>
+
+</html>

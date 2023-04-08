@@ -1,0 +1,126 @@
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center" style="background-color:#212934; padding: 10px;  max-width: 100%;">
+
+        <a class="navbar-brand text-success logo h1 align-self-center" href="/home">
+            <img src="/img/logo.png" alt="styleeyelogo" srcset="" style="width: 120px; position:absolute; margin-top: -35px;">
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="index.html">Shop</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sunglasses">Sunglasses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/computerglasses">ComputerGlasses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/powerglasses">PowerGlasses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contactlenses">ContactLenses</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="contact.html">About StyleEye</a>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="navbar align-self-center d-flex">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q" id="inputMobileSearch" placeholder="Search ...">
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <a class="nav-icon d-none d-lg-inline" href="/user/liked/products" >
+                    <i class="fa fa-heart" style="font-size:24px"></i>
+                </a>
+                <a class="nav-icon d-none d-lg-inline" href="/user/oders/track" >
+                    <i class="fa fa-truck" style="font-size:24px"></i>
+                </a>             
+                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                    <i class="fa fa-fw fa-search text-white mr-2"></i>
+                </a>
+                <a class="nav-icon position-relative text-decoration-none" href="/cartpage">
+                    <i class="fa fa-fw fa-cart-arrow-down text-white mr-1"></i>
+                    
+                </a>
+                <a class="nav-icon d-none d-lg-inline" href="/aboutpage" >
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="30" height="30"
+                    viewBox="0 0 30 30"
+                    style="fill:#FFFFFF;">
+                        <path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path>
+                    </svg>
+                </a>
+                
+                <li class="nav-item dropdown no-arrow " id="myDropdown">
+                    <a target="_blank" rel="noopener noreferrer" onclick="myFunction()" role="button">
+                        <i class="fa fa-fw fa-user text-white mr-3"></i>
+                    </a>
+                    
+                    <!-- Dropdown - User Information -->
+                    <% if (loginuser == true) { %>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        id="dropdown" style="margin: 0.875rem -132px 0px;">
+                        <a class="dropdown-item" href="/user/profile" style="color: #212934;">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/user/Logout" data-toggle="modal" data-target="#logoutModal" style="color: #212934;">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </div>
+                    <% }else{ %>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        id="dropdown" style="margin: 0.875rem -132px 0px;">
+                        <a class="dropdown-item" href="/login" style="color: #212934;">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Login / Registration
+                        </a>
+                        <a class="dropdown-item" href="/seller/login" style="color: #212934;">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Seller Login / Registration
+                        </a>
+                    </div>
+                        <% } %>
+                </li>
+
+                <script>
+                    /* When the user clicks on the button, 
+                    toggle between hiding and showing the dropdown content */
+                    function myFunction() {
+                      document.getElementById("myDropdown").classList.toggle("show");
+                      document.getElementById("dropdown").classList.toggle("show");
+                    }
+                    
+                    // Close the dropdown if the user clicks outside of it
+                    window.onclick = function(event) {
+                      if (!event.target.matches('.dropbtn')) {
+                        var i;
+                        for (i = 0; i < dropdowns.length; i++) {
+                          var openDropdown = dropdowns[i];
+                          if (openDropdown.classList.contains('show')) {
+                          }
+                        }
+                      }
+                    }
+                    </script>
+            </div>
+        </div>
+
+    </div>
+</nav>
+<!-- Close Header -->
