@@ -24,7 +24,7 @@ app.use(express.static('public'))
 
 //DATABASE CONNECTION
 const mongoose = require('mongoose');
-const mongodb = 'mongodb+srv://aakashmaurya0712:aakashmaurya@cluster0.ifkiv6y.mongodb.net/styleeye?retryWrites=true&w=majority';
+const mongodb = process.env.MONGO
 mongoose.set('strictQuery', false);
 mongoose.connect(mongodb,{useNewUrlParser:true},(err)=>{
     if(!err){
@@ -44,7 +44,7 @@ app.get("*",(req,res)=>{
 
 try {
     const server = http.createServer(app);
-    const port = 3000;
+    const port = process.env.PORT || 3000;
     server.listen(port)
     console.log("// * YOUR SERVER A RUN IN : 3000 * //")
 } catch (error) {
