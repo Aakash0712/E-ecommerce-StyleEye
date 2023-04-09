@@ -24,7 +24,7 @@ app.use(express.static('public'))
 
 //DATABASE CONNECTION
 const mongoose = require('mongoose');
-const mongodb = "mongodb://127.0.0.1:27017/StyleEyeApplicatiton"
+const mongodb = 'mongodb+srv://aakashmaurya0712:aakashmaurya@cluster0.ifkiv6y.mongodb.net/styleeye?retryWrites=true&w=majority'
 mongoose.set('strictQuery', false);
 mongoose.connect(mongodb,{useNewUrlParser:true},(err)=>{
     if(!err){
